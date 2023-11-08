@@ -87,7 +87,7 @@ body {
   background-color: #0E0E0E;
   font-family: "Arial", sans-serif;
   color: #E8E8E8;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden; 
   zoom: 1;
   font-family: 'Inter', sans-serif;
   font-family: 'Permanent Marker', cursive;   
@@ -99,7 +99,6 @@ body {
   font-family: 'Libre Franklin', sans-serif;
   font-family: 'Manrope', sans-serif;
   font-family: 'Permanent Marker', cursive;
-
 }
 
 
@@ -217,7 +216,7 @@ transform: scale(1.1);
 /*Start of Body 1*/
 .body-1-wrapper{
   position: relative;
-  top: 35%;
+  margin-top: 25%;
   left: 5%;
   display: flex;
   flex-direction: column;
@@ -259,7 +258,7 @@ transform: scale(1.1);
 /*Start of Body 2*/
 .body-2-wrapper{
   position: relative;
-  top: 80%;
+  margin-top: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -435,7 +434,7 @@ transform: scale(1.1);
 
 .body-3-wrapper{
   position: relative;
-  top: 70%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   font-family: Libre Franklin;
@@ -473,7 +472,7 @@ transform: scale(1.1);
 /*Start of Body 4*/
 .body-4-wrapper{
   position: relative;
-  top: 150%;
+  margin-top: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
