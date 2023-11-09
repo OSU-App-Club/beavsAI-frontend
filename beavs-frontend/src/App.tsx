@@ -43,12 +43,12 @@ function App() {
               <div className="about-button">About</div>
               <div className="resources-button">Resources</div>
               <div className="login-button">Login</div>
-              <div className="signup-button">Sign up</div>
+              <div className="signup-button">Sign Up</div>
           </nav>
       </div>
 
       <div className="body-1-wrapper">
-          <div className="intro-header">Beavs.<span className ="ai">AI</span> <br /> Oregon States Artifical Intelligence </div>        
+          <div className="intro-header">Beavs.<span className ="ai">AI</span> <br /> Oregon State's Artifical Intelligence </div>        
           <div className="intro-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, consequatur quasi ab ex obcaecati, non aliquid alias ut eius perspiciatis quos aut quidem minima nemo sint nihil dolore maxime aliquam?</div>
           <div className="intro-action-button">Start Chatting for Free!</div>
           <div className="intro-robot"><img src={g10} /></div> 
