@@ -43,7 +43,7 @@ function App() {
               <div className="about-button">About</div>
               <div className="resources-button">Resources</div>
               <div className="login-button">Login</div>
-              <div className="signup-button">Sign up</div>
+              <div className="signup-button">Sign Up</div>
           </nav>
       </div>
 
