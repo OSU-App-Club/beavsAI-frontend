@@ -19,7 +19,7 @@ function App() {
       <div className="top-of-page-wrapper">
           <nav className="nav-container">
               <div className="title-name">Beavs<span className="ai">AI</span></div>
-              <div className="home-button">Home</div>
+              <a href="/chat" className="home-button">Home</a>
               <div className="features-button">Features</div>
               <div className="about-button">About</div>
               <div className="resources-button">Resources</div>
