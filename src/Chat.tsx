@@ -1,9 +1,7 @@
 export default function Chat(){
     return (
-    <>
         
-        <div>Hi</div>
+    <div>Hi asd asdasdadsadads</div>
         
-    </>
     )
 }
