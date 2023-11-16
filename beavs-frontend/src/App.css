@@ -85,20 +85,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #0E0E0E;
-  font-family: "Arial", sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   color: #E8E8E8;
   overflow-x: hidden; 
   zoom: 1;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Permanent Marker', cursive;   
-  font-family: 'Inter', sans-serif;
-  font-family: 'Libre Franklin', sans-serif;
-  font-family: 'Permanent Marker', cursive;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Libre Franklin', sans-serif;
-  font-family: 'Manrope', sans-serif;
-  font-family: 'Permanent Marker', cursive;
 }
 
 
@@ -188,6 +178,11 @@ transform: scale(1.1);
   transform: scale(1.1);
   cursor: pointer;
 
+}
+
+.cl-userButton-root{
+  position: absolute;
+  margin-left: 75%;
 }
 
 .login-button{

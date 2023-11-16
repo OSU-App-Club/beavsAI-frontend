@@ -2,39 +2,21 @@ import { useState } from 'react'
 import beaverLogo from "./assets/beaver-logo.png";
 import g10 from "./assets/g10.svg";
 import team from "./assets/team-picture.jpeg";
-import './App.css'
+import './App.css';
+import {ClerkProvider} from "@clerk/clerk-react";
+import {dark} from "@clerk/themes";
+import Auth from "./Auth.tsx";
+
+if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key")
+}
+const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = () => {
-  };
-
   return (
-    // <div classNameName="login-container">
-    //   <img src={beaverLogo} alt="Oregon State Beavers Logo" />
-    //   <h1>SIGN IN</h1>
-
-    //   <input
-    //     type="text"
-    //     placeholder="Username"
-    //     value={username}
-    //     onChange={(e) => setUsername(e.target.value)}
-    //   />
-
-    //   <input
-    //     type="password"
-    //     placeholder="Password"
-    //     value={password}
-    //     onChange={(e) => setPassword(e.target.value)}
-    //   />
-
-    //   <button onClick={handleSubmit}>Log In</button>
-    // </div>
-
     //Navigation
     <>
+      <ClerkProvider publishableKey={clerkPubKey} appearance={dark}>
       <div className="top-of-page-wrapper">
           <nav className="nav-container">
               <div className="title-name">Beavs<span className="ai">AI</span></div>
@@ -42,8 +24,7 @@ function App() {
               <div className="features-button">Features</div>
               <div className="about-button">About</div>
               <div className="resources-button">Resources</div>
-              <div className="login-button">Login</div>
-              <div className="signup-button">Sign Up</div>
+              <Auth/>
           </nav>
       </div>
 
@@ -91,6 +72,7 @@ function App() {
         <div className="faq-box-8"></div>
         <div className="faq-box-9"></div>
     </div>
+    </ClerkProvider>
     </>
   );
 };
