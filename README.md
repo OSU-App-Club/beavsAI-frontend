@@ -1,5 +1,3 @@
-Welcome to the Frontend Page!
+Welcome to the Beavs.ai Frontend Page!
 
-TEST!
-Test1
-Test2 @ 9:22PM
+
