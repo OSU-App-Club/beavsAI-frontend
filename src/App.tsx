@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import beaverLogo from "./assets/beaver-logo.png";
+import { useState } from 'react';
 import g10 from "./assets/g10.svg";
 import team from "./assets/team-picture.jpeg";
 import './App.css';
-import {ClerkProvider} from "@clerk/clerk-react";
-import {dark} from "@clerk/themes";
-import Auth from "./Auth.tsx";
+import { ClerkProvider } from "@clerk/clerk-react";
+import { dark } from "@clerk/themes";
+import Auth from "./Auth";
 
 if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
