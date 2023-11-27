@@ -2,6 +2,7 @@ import g10 from "../assets/g10.svg";
 import team from "../assets/team-picture.jpeg";
 import '../App.css';
 import Auth from "../Auth";
+import { Link } from "react-router-dom";
   
   export default function Home() {
     return (
@@ -20,7 +21,7 @@ import Auth from "../Auth";
       <div className="body-1-wrapper">
           <div className="intro-header">Beavs.<span className ="ai">AI</span> <br /> Oregon State's Artifical Intelligence </div>        
           <div className="intro-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, consequatur quasi ab ex obcaecati, non aliquid alias ut eius perspiciatis quos aut quidem minima nemo sint nihil dolore maxime aliquam?</div>
-          <div className="intro-action-button">Start Chatting for Free!</div>
+          <Link to='/chat' className="intro-action-button">Start Chatting for Free!</Link>
           <div className="intro-robot"><img src={g10} /></div> 
       </div>
 
