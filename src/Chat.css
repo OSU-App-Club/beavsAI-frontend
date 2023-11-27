@@ -1,0 +1,156 @@
+/* Main HTML*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: "Arial", sans-serif;
+    font-family: "Inter";
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    zoom: 1;
+} 
+
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+
+  a {
+    text-decoration: none;
+  }
+/* End of Main HTML*/
+
+
+
+
+.side-bar{
+    position: relative;
+    width: 251px;
+    height: 832px;  
+    flex-shrink: 0;
+    border-right: 1px solid #FFF;
+    background: #E1E4E8;
+}
+
+.header-title{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    margin-left: 15px;
+}
+
+.intro-text{
+    position: relative;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    margin-top: 5px;
+}
+
+.intro-image img{
+    position: relative;
+    width: 100px;
+    height: 100px; 
+    margin-top: 5px;
+}
+
+
+
+.chat-box-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-box-1{
+    width: 222px;
+    height: 75px;
+    border-radius: 8px;
+    background: white;
+    margin-top: 68px;
+    margin-left: 14px;
+}
+
+.side-box-2{
+    width: 222px;
+    height: 75px;
+    border-radius: 8px;
+    background: white;
+    margin-top: 18px;
+    margin-left: 14px;
+}
+
+.side-box-3{
+    width: 222px;
+    height: 75px;
+    border-radius: 8px;
+    background: white;
+    margin-top: 18px;
+    margin-left: 14px;
+}
+.side-box-4{
+    width: 222px;
+    height: 75px;
+    border-radius: 8px;
+    background: white;
+    margin-top: 18px;
+    margin-left: 14px;
+}
+.side-box-5{
+    width: 222px;
+    height: 75px;
+    border-radius: 8px;
+    background: white;
+    margin-top: 18px;
+    margin-left: 14px;
+}
+.side-box-6{
+    width: 222px;
+    height: 75px;
+    border-radius: 8px;
+    background: white;
+    margin-top: 18px;
+    margin-left: 14px;
+}
+
+
+.side-box-1,
+.side-box-2,
+.side-box-3,
+.side-box-4,
+.side-box-5,
+.side-box-6{
+    color: #909090;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+}
+
+
+.profile-container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-icon img{
+    width: 30px;
+    height: 30px;
+    margin-top: 645px;
+    margin-left: 10px
+}
+
+.username{
+    color: black;
+    font-size: .6rem;
+}
