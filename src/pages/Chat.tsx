@@ -40,8 +40,8 @@ export default function Chat(){
                 <ChatMessage message="Hello" sentBy="BeavsAI"/>
                 <ChatMessage message="Hello" sentBy="User"/>
                 <div className='send-message-container'>
-                    <input type='text' placeholder='Enter your message here..' className='message-input'/>
-                    <button className='send-message-button'>Send</button>
+                <input type='text' placeholder='Enter Message' className='message-input'/>
+                <button className='send-message-button'>&#10140;</button>
                 </div>
                 <Link to='/' className='btn'>Back</Link>
             </div>
