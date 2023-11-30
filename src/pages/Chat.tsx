@@ -3,7 +3,9 @@ import g10 from "../assets/g10.svg";
 import profile from"../assets/profile-logo-image.jpeg";
 import './Chat.css';
 import { Link } from 'react-router-dom';
+import ChatMessage from '../components/ChatMessage';
 export default function Chat(){
+
     return (
     <> 
         <div className='page-container'>
@@ -33,7 +35,16 @@ export default function Chat(){
 
             </div>
 
-            <Link to='/' className='btn'>Back</Link>
+            <div className='message-container'>
+                <ChatMessage message="This is an example message!" sentBy="User"/>
+                <ChatMessage message="Hello" sentBy="BeavsAI"/>
+                <ChatMessage message="Hello" sentBy="User"/>
+                <div className='send-message-container'>
+                    <input type='text' placeholder='Enter your message here..' className='message-input'/>
+                    <button className='send-message-button'>Send</button>
+                </div>
+                <Link to='/' className='btn'>Back</Link>
+            </div>
         </div>
     </>   
         
