@@ -143,6 +143,7 @@
 }
 
 .btn:hover {
+    
     background: #FF4300;
     color: white;
     cursor: pointer;
@@ -166,13 +167,33 @@
         padding-right: 20px;
     }
 }
-
-.message-input {
+.send-message-container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 10px;
     margin-top: 20px;
-    width: 80%;
+    width: 90%;
+    height: 50px;
     align-self: center;
+    padding: 5px;
+}
+.message-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 1500%; /* Increase the width */
+    height: 80px; /* Adding a height */
+    border: 1px solid #ccc; /* Adding a border for visualization */
+    padding: 5px; /* Adding some padding for content */
+}
+.send-message-container{
+    position: sticky;
+    top: 90%;
+    left: 0%;
+}
+
+.send-message-button{
+    border-radius: 10px;
+    position: sticky;
+    top: 90%;
 }
