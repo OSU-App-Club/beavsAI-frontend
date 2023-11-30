@@ -1,10 +1,11 @@
 .side-bar{
     position: relative;
-    width: 251px;
-    height: 832px;  
+    width: 20vw;
+    height: 100vh;  
     flex-shrink: 0;
     border-right: 1px solid #FFF;
     background: #E1E4E8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .header-title{
@@ -146,4 +147,32 @@
     color: white;
     cursor: pointer;
     transform: scale(1.05);
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: #FFFFFF;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .message-container {
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+}
+
+.message-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 80%;
+    align-self: center;
 }
