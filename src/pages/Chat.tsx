@@ -1,52 +1,97 @@
-import React from 'react';
-import g10 from "../assets/g10.svg";
-import profile from"../assets/profile-logo-image.jpeg";
-import './Chat.css';
-import { Link } from 'react-router-dom';
-import ChatMessage from '../components/ChatMessage';
-export default function Chat(){
+import { useUser } from "@clerk/clerk-react";
+import { UserResource } from "@clerk/types";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import { ChatContainer } from "../components/Containers";
+import Sidebar from "../components/Sidebar";
+import {
+  ChatContainerSkeleton,
+  MessageInputSkeleton,
+} from "../components/Skeletons";
+import useToken from "../hooks/useToken";
+import { getAllMessagesForChat } from "../lib/fetchers";
+import { useTokenStore } from "../lib/zustand";
+import "../styles/Chat.css";
 
+export const SingleChat = ({ user }: { user: UserResource }) => {
+  useToken();
+  const { token } = useTokenStore();
+  const { chatId } = useParams<{ chatId: string }>();
+  const userId = user.id;
+  const id = chatId ?? "";
+  const [parent] = useAutoAnimate();
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["getSingleChatMessages", chatId],
+    queryFn: () => getAllMessagesForChat(userId, id, token),
+    retry: false,
+    notifyOnChangeProps() {
+      return ["data"];
+    },
+  });
+
+  if (isLoading) {
     return (
-    <> 
-        <div className='page-container'>
-            <div className="side-bar">
-
-                <div className="header-title"> 
-                    <h1 className="intro-text">BeavsAI</h1>
-                    <div className="intro-image">
-                        <img src={g10}/>
-                    </div>
-                </div>
-                
-                <div className="chat-box-container">
-                    <h2 className="side-box-1">Recent Request</h2>
-                    <h2 className="side-box-2">Recent Request</h2>
-                    <h2 className="side-box-3">Recent Request</h2>
-                    <h2 className="side-box-4">Recent Request</h2>
-                    <h2 className="side-box-5">Recent Request</h2>
-                    <h2 className="side-box-6">Recent Request</h2>
-                </div>
-                
-
-                <div className="profile-container">
-                    <div className="profile-icon"><img src={profile}/></div>
-                    <h1 className="username">User</h1>
-                </div>
-
-            </div>
-
-            <div className='message-container'>
-                <ChatMessage message="This is an example message!" sentBy="User"/>
-                <ChatMessage message="Hello" sentBy="BeavsAI"/>
-                <ChatMessage message="Hello" sentBy="User"/>
-                <div className='send-message-container'>
-                <input type='text' placeholder='Enter Message' className='message-input'/>
-                <button className='send-message-button'>&#10140;</button>
-                </div>
-                <Link to='/' className='btn'>Back</Link>
-            </div>
+      <>
+        <div className="page-container">
+          <Sidebar token={token} />
+          <ChatContainerSkeleton />
+          <MessageInputSkeleton />
         </div>
-    </>   
-        
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <div className="page-container">
+          <Sidebar token={token} />
+          <h1>Error</h1>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="page-container" ref={parent}>
+        <Sidebar token={token} />
+        {!isLoading && (
+          <ChatContainer
+            userId={user.id}
+            messages={data}
+            token={token}
+            chatId={id}
+          />
+        )}
+      </div>
+    </>
+  );
+};
+
+const Chat = () => {
+  useToken();
+  const { token } = useTokenStore();
+  const { user } = useUser();
+  const userId = user?.id ?? "";
+
+  return (
+    token && (
+      <>
+        <div className="page-container">
+          <Sidebar token={token} />
+          <ChatContainer
+            userId={userId}
+            token={token}
+            chatId=""
+            messages={[]}
+          />
+        </div>
+      </>
     )
-}
+  );
+};
+
+export default Chat;

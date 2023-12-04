@@ -1,6 +1,6 @@
 import g10 from "../assets/g10.svg";
 import team from "../assets/team-picture.jpeg";
-import '../App.css';
+import '../styles/App.css';
 import Auth from "../Auth";
 import { Link } from "react-router-dom";
   
