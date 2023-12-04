@@ -1,0 +1,256 @@
+.nav-link {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 15px;
+  color: #909090;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #ff4300;
+  cursor: pointer;
+}
+
+.side-bar {
+  position: relative;
+  width: 20vw;
+  height: 100vh;
+  flex-shrink: 0;
+  border-right: 1px solid #fff;
+  background: #e1e4e8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-title {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin-left: 15px;
+}
+
+.intro-text {
+  position: relative;
+  color: black;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  margin-top: 5px;
+}
+
+.intro-image img {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+}
+
+.chat-box-container {
+  /* position: absolute; ??? */
+  display: flex;
+  flex-direction: column;
+}
+
+.side-box-1 {
+  width: 222px;
+  height: 75px;
+  border-radius: 8px;
+  background: white;
+  margin-top: 68px;
+  margin-left: 14px;
+}
+
+.side-box-2 {
+  width: 222px;
+  height: 75px;
+  border-radius: 8px;
+  background: white;
+  margin-top: 18px;
+  margin-left: 14px;
+}
+
+.side-box-3 {
+  width: 222px;
+  height: 75px;
+  border-radius: 8px;
+  background: white;
+  margin-top: 18px;
+  margin-left: 14px;
+}
+.side-box-4 {
+  width: 222px;
+  height: 75px;
+  border-radius: 8px;
+  background: white;
+  margin-top: 18px;
+  margin-left: 14px;
+}
+.side-box-5 {
+  width: 222px;
+  height: 75px;
+  border-radius: 8px;
+  background: white;
+  margin-top: 18px;
+  margin-left: 14px;
+}
+.side-box-6 {
+  width: 222px;
+  height: 75px;
+  border-radius: 8px;
+  background: white;
+  margin-top: 18px;
+  margin-left: 14px;
+}
+
+.side-box-1,
+.side-box-2,
+.side-box-3,
+.side-box-4,
+.side-box-5,
+.side-box-6 {
+  color: #909090;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.profile-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-icon img {
+  width: 30px;
+  height: 30px;
+  margin-top: 645px;
+  margin-left: 10px;
+}
+
+.username {
+  color: black;
+  font-size: 0.6rem;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
+.btn {
+  font-size: 25px;
+  color: white;
+  margin-top: 25px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 60px;
+  background: #ff4300;
+  width: 100px;
+  height: 20px;
+}
+
+.btn:hover {
+  background: #ff4300;
+  color: white;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #ffffff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+@media only screen and (max-width: 600px) {
+  .message-container {
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+}
+.send-message-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 90%;
+  height: 50px;
+  align-self: center;
+  padding: 5px;
+}
+.message-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  width: 1500%; /* Increase the width */
+  height: 80px; /* Adding a height */
+  border: 1px solid #ccc; /* Adding a border for visualization */
+  padding: 5px; /* Adding some padding for content */
+}
+.send-message-container {
+  position: sticky;
+  top: 90%;
+  left: 0%;
+}
+
+.send-message-button {
+  border-radius: 10px;
+  position: sticky;
+  top: 90%;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton-message {
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-message-input {
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.skeleton-btn {
+  background-color: #f4f4f4;
+  color: #f4f4f4;
+}

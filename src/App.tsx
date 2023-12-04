@@ -1,30 +1,22 @@
-import { useState } from 'react';
+import { useUser } from "@clerk/clerk-react";
 import { Route, Routes } from "react-router-dom";
-import g10 from "./assets/g10.svg";
-import team from "./assets/team-picture.jpeg";
-import './App.css';
-import { ClerkProvider } from "@clerk/clerk-react";
-import { dark } from "@clerk/themes";
-import Auth from "./Auth";
+import Chat, { SingleChat } from "./pages/Chat";
 import Home from "./pages/Home";
-import Chat from "./pages/Chat"
-
-if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
-    throw new Error("Missing Publishable Key")
-}
-const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
+import "./styles/App.css";
 
 function App() {
+  const { user } = useUser();
   return (
-    <>
-      <ClerkProvider publishableKey={clerkPubKey} appearance={dark}>
+    user && (
+      <>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/chat" element={<Chat />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat/:chatId" element={<SingleChat user={user} />} />
         </Routes>
-      </ClerkProvider>
-    </>
+      </>
+    )
   );
-};
+}
 
-export default App
+export default App;

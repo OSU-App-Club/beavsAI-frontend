@@ -1,21 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0E0E0E;
-  font-family: 'Libre Franklin', sans-serif;
-  color: #E8E8E8;
-  overflow-x: hidden; 
+  background-color: white;
+  font-family: "Libre Franklin", sans-serif;
+  color: #e8e8e8;
+  overflow-x: hidden;
   zoom: 1;
 }
-
 
 button {
   border: none;
   background-color: transparent;
 }
 
-
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -26,9 +25,9 @@ a {
 }
 
 /* Start of Navigation */
-.nav-container{
+.nav-container {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 55px;
@@ -37,29 +36,28 @@ a {
   margin-top: 15px;
 }
 .title-name .ai {
-  color: #D73F09; /* Set the color for "AI" */
+  color: #d73f09; /* Set the color for "AI" */
 }
 
 .home-button:hover,
 .features-button:hover,
 .about-button:hover,
-.resources-button:hover{
-cursor: pointer;
-color: #ffffff;
-border-radius: 20%;
-transform: scale(1.1);
+.resources-button:hover {
+  cursor: pointer;
+  color: #ffffff;
+  border-radius: 20%;
+  transform: scale(1.1);
 }
 
-.intro-header .ai{
-  color: #D73F09; /* Set the color for "AI" */
-  
+.intro-header .ai {
+  color: #d73f09; /* Set the color for "AI" */
 }
 
-.intro-action-button:hover{
-      transform: scale(1.05);
-      cursor: pointer;
+.intro-action-button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
-         
+
 .title-name,
 .ai-color-change,
 .home-button,
@@ -67,66 +65,62 @@ transform: scale(1.1);
 .about-button,
 .resources-button,
 .login-button,
-.signup-button{
+.signup-button {
   margin-top: 10px;
   position: relative;
-  color: var(--text-white, #E8E8E8);
+  color: var(--text-white, #e8e8e8);
   font-family: Inter;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  position: relative; 
+  position: relative;
 }
 
-.signup-button{
+.signup-button {
   position: absolute;
   margin-left: 90%;
   border-radius: 60px;
-  background: #D73F09;
+  background: #d73f09;
   box-shadow: 0px 4px 31px 0px rgba(0, 0, 0, 0.15);
   padding: 7px;
   justify-content: center;
 }
 
-.signup-button:hover{
-  background-color: #D73F09;
-  transform: scale(1.1);
-  cursor: pointer;
-
-}
-
-.cl-userButton-root{
-  position: absolute;
-  margin-left: 75%;
-}
-
-.login-button{
-  position: absolute;
-  margin-left: 75%;
-}
-.login-button:hover{
+.signup-button:hover {
+  background-color: #d73f09;
   transform: scale(1.1);
   cursor: pointer;
 }
 
-  
-.title-name{
+.cl-userButton-root {
   position: absolute;
-  margin-left: -90%
+  margin-left: 75%;
 }
 
-.ai-color-change{
+.login-button {
+  position: absolute;
+  margin-left: 75%;
+}
+.login-button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.title-name {
+  position: absolute;
+  margin-left: -90%;
+}
+
+.ai-color-change {
   position: absolute;
   margin-left: -1140px;
-  color: #D73F09;
-
+  color: #d73f09;
 }
 /* End of Navigation */
 
-
 /*Start of Body 1*/
-.body-1-wrapper{
+.body-1-wrapper {
   position: relative;
   margin-top: 25%;
   left: 5%;
@@ -135,40 +129,40 @@ transform: scale(1.1);
   font-family: Libre Franklin;
 }
 
-.intro-header{
+.intro-header {
   color: white;
   font-style: normal;
   font-size: 40px;
-  line-height: 50px
+  line-height: 50px;
 }
 
-.intro-paragraph{
+.intro-paragraph {
   font-size: 20px;
   margin-top: 5px;
-  width: 50%
+  width: 50%;
 }
 
-.intro-action-button{
+.intro-action-button {
   font-size: 25px;
   color: white;
   margin-top: 25px;
   padding: 10px;
   border-radius: 60px;
-  background: #FF4300;
-  width: 270px
+  background: #ff4300;
+  width: 270px;
 }
 
-.intro-robot img{
+.intro-robot img {
   position: absolute;
   width: 1000px;
   height: 700px;
   right: 2%;
-  top: -85%
+  top: -85%;
 }
 /*End of Body 1*/
 
 /*Start of Body 2*/
-.body-2-wrapper{
+.body-2-wrapper {
   position: relative;
   margin-top: 30%;
   display: flex;
@@ -178,15 +172,14 @@ transform: scale(1.1);
   text-align: center;
 }
 
-.body-2-header{
+.body-2-header {
   font-family: Manrope;
   font-size: 40px;
-  font-weight:700px;
-  color: #D73F09
-
+  font-weight: 700px;
+  color: #d73f09;
 }
 
-.body-2-description{
+.body-2-description {
   font-family: Manrope;
   width: 40%;
   margin-top: 10px;
@@ -194,8 +187,7 @@ transform: scale(1.1);
   font-size: 20px;
 }
 
-
-.box-1{
+.box-1 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -209,7 +201,7 @@ transform: scale(1.1);
   top: 180px;
 }
 
-.box-2{
+.box-2 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -221,10 +213,10 @@ transform: scale(1.1);
   border-radius: 20px;
   position: absolute;
   top: 300px;
-  margin-left: 500px
+  margin-left: 500px;
 }
 
-.box-3{
+.box-3 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -236,10 +228,10 @@ transform: scale(1.1);
   border-radius: 20px;
   position: absolute;
   top: 300px;
-  margin-left: -500px
+  margin-left: -500px;
 }
 
-.box-4{
+.box-4 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -253,8 +245,7 @@ transform: scale(1.1);
   top: 380px;
 }
 
-
-.box-5{
+.box-5 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -268,8 +259,7 @@ transform: scale(1.1);
   top: 580px;
 }
 
-
-.box-6{
+.box-6 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -281,11 +271,10 @@ transform: scale(1.1);
   border-radius: 20px;
   position: absolute;
   top: 500px;
-  margin-left: 500px
+  margin-left: 500px;
 }
 
-
-.box-7{
+.box-7 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -297,10 +286,10 @@ transform: scale(1.1);
   border-radius: 20px;
   position: absolute;
   top: 380px;
-  margin-left: -1000px
+  margin-left: -1000px;
 }
 
-.box-8{
+.box-8 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -312,10 +301,10 @@ transform: scale(1.1);
   border-radius: 20px;
   position: absolute;
   top: 500px;
-  margin-left: -500px
+  margin-left: -500px;
 }
 
-.box-9{
+.box-9 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -327,24 +316,13 @@ transform: scale(1.1);
   border-radius: 20px;
   position: absolute;
   top: 380px;
-  margin-left: 1000px
+  margin-left: 1000px;
 }
 /*End of Body 2*/
 
-
-
-
-
-
-
-
-
-
-
-
 /*Start of Body 3*/
 
-.body-3-wrapper{
+.body-3-wrapper {
   position: relative;
   margin-top: 5%;
   display: flex;
@@ -352,37 +330,36 @@ transform: scale(1.1);
   font-family: Libre Franklin;
 }
 
-.text-container{
+.text-container {
   position: absolute;
   left: 48%;
 }
 
-.body-3-header{
-  color: #D73F09;
+.body-3-header {
+  color: #d73f09;
   font-size: 40px;
 }
 
-.body-3-description{
+.body-3-description {
   font-size: 20px;
   width: 80%;
   margin-top: 20px;
   margin-bottom: 800px;
 }
 
-.body-3-team-photo img{
+.body-3-team-photo img {
   position: absolute;
-  height:300px ;
+  height: 300px;
   left: 5%;
   border-radius: 50px;
-  border: 2px solid #D73F09;
+  border: 2px solid #d73f09;
   box-shadow: 0px 4px 4px 0px rgba(215, 63, 9, 0.91);
 }
 
 /*End of Body 3*/
 
-
 /*Start of Body 4*/
-.body-4-wrapper{
+.body-4-wrapper {
   position: relative;
   margin-top: 45%;
   display: flex;
@@ -393,13 +370,13 @@ transform: scale(1.1);
   margin-bottom: 150px;
 }
 
-.body-4-header{
+.body-4-header {
   font-family: Libre Franklin;
   color: #d73f09;
   font-size: 40px;
 }
 
-.faq-box-1{
+.faq-box-1 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -411,11 +388,11 @@ transform: scale(1.1);
   border-radius: 10px;
   position: absolute;
   top: 80px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-2{
+.faq-box-2 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -427,12 +404,12 @@ transform: scale(1.1);
   border-radius: 10px;
   position: absolute;
   top: 80px;
-  margin-right: 750px; 
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  margin-right: 750px;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-3{
+.faq-box-3 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -444,12 +421,12 @@ transform: scale(1.1);
   border-radius: 10px;
   position: absolute;
   top: 80px;
-  margin-right: -750px; 
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  margin-right: -750px;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-4{
+.faq-box-4 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -461,11 +438,11 @@ transform: scale(1.1);
   border-radius: 10px;
   position: absolute;
   top: 220px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-5{
+.faq-box-5 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -478,11 +455,11 @@ transform: scale(1.1);
   position: absolute;
   top: 220px;
   margin-right: 750px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-6{
+.faq-box-6 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -495,11 +472,11 @@ transform: scale(1.1);
   position: absolute;
   top: 220px;
   margin-right: -750px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-7{
+.faq-box-7 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -511,11 +488,11 @@ transform: scale(1.1);
   border-radius: 10px;
   position: absolute;
   top: 360px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-8{
+.faq-box-8 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -528,11 +505,11 @@ transform: scale(1.1);
   position: absolute;
   top: 360px;
   margin-right: 750px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
-.faq-box-9{
+.faq-box-9 {
   align-items: center;
   text-align: center;
   justify-items: center;
@@ -545,17 +522,12 @@ transform: scale(1.1);
   position: absolute;
   top: 360px;
   margin-right: -750px;
-  border: 2px solid #D73F09;      
-  background: #1F1F1F;
+  border: 2px solid #d73f09;
+  background: #1f1f1f;
 }
 
 /*End of Body 4*/
 
-
-
 /*Start of Chat Page*/
-
-
-
 
 /*End of Chat Page*/
