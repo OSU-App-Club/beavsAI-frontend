@@ -22,6 +22,18 @@ export const createChat = async (userId: string, token: string) => {
   }
 };
 
+export const getAIResponse = async (userId: string, messageId: string) => {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/chat/${userId}/messages/${messageId}`
+    );
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
 export const addMessageToChat = async (
   userId: string,
   chatId: string,

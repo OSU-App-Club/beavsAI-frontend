@@ -1,6 +1,7 @@
 export interface MessageInputProps {
   userId: string;
   token: string;
+  setLoadingEffect: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export type Message = {
@@ -15,6 +16,7 @@ export type ChatContainerProps = {
   userId: string;
   token: string;
   chatId: string;
+  username: string;
 };
 
 export type ChatLink = {
@@ -28,4 +30,9 @@ export interface ChatMessageProps {
   _id: string;
   chatId: string;
   token: string;
+  username: string;
+}
+
+export interface AIMessageProps {
+  message: string;
 }

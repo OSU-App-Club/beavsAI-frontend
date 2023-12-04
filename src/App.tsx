@@ -7,16 +7,14 @@ import "./styles/App.css";
 function App() {
   const { user } = useUser();
   return (
-    user && (
-      <>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/chat/:chatId" element={<SingleChat user={user} />} />
-        </Routes>
-      </>
-    )
-  );
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/chat/:chatId" element={<SingleChat user={user} />} />
+      </Routes>
+    </>
+  )
 }
 
 export default App;

@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import "../assets/profile-logo-image.jpeg";
 import { deleteMessage } from "../lib/fetchers";
-import { ChatMessageProps } from "../types";
+import { AIMessageProps, ChatMessageProps } from "../types";
 import "../styles/ChatMessage.css";
+import "../assets/ai-profile-picture.jpeg";
 
 const ChatMessage = (props: ChatMessageProps) => {
   const queryClient = useQueryClient();
@@ -16,6 +17,7 @@ const ChatMessage = (props: ChatMessageProps) => {
       });
     },
   });
+
   return (
     <div>
       <div className="chat-message">
@@ -24,7 +26,7 @@ const ChatMessage = (props: ChatMessageProps) => {
           className="chat-message-image"
         />
         <div className="message">
-          <h1 className="message-sender">{props.userId}</h1>
+          <h1 className="message-sender">{props.username}</h1>
           <h2 className="message-text">{props.question}</h2>
         </div>
         <button
@@ -40,8 +42,27 @@ const ChatMessage = (props: ChatMessageProps) => {
           &#10006;
         </button>
       </div>
+      
+
+      <AIMessage message={props.answer} />
+
     </div>
   );
 };
+
+const AIMessage = ({message}: AIMessageProps) => {
+  return (
+    <div className="chat-message">
+      <img
+        src="../src/assets/ai-profile-picture.jpeg"
+        className="chat-message-image"
+      />
+      <div className="message">
+        <h1 className="message-sender">BeavsAI</h1>
+        <h2 className="message-text">{message}</h2>
+      </div>
+    </div>
+  );
+}
 
 export default ChatMessage;

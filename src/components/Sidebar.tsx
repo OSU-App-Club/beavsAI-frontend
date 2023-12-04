@@ -1,4 +1,4 @@
-import { useUser } from "@clerk/clerk-react";
+import { UserButton, useUser } from "@clerk/clerk-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { NavLink } from "react-router-dom";
 import g10 from "../assets/g10.svg";
@@ -70,12 +70,9 @@ const Sidebar = ({ token }: { token: string }) => {
         </div>
 
         {/* TODO: Properly style this */}
-        {/* <div className="profile-container">
-        <div className="profile-icon">
-          <img src={user?.imageUrl} alt="Profile" />
+        <div className="profile-container">
+          <h1 className="username">{user?.fullName}</h1>
         </div>
-        <h1 className="username">{user?.fullName}</h1>
-      </div> */}
       </div>
     )
   );

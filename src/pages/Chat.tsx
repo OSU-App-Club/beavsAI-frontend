@@ -18,6 +18,7 @@ export const SingleChat = ({ user }: { user: UserResource }) => {
   useToken();
   const { token } = useTokenStore();
   const { chatId } = useParams<{ chatId: string }>();
+  const username = user.fullName ?? "";
   const userId = user.id;
   const id = chatId ?? "";
   const [parent] = useAutoAnimate();
@@ -64,6 +65,7 @@ export const SingleChat = ({ user }: { user: UserResource }) => {
             messages={data}
             token={token}
             chatId={id}
+            username={username}
           />
         )}
       </div>
@@ -76,6 +78,7 @@ const Chat = () => {
   const { token } = useTokenStore();
   const { user } = useUser();
   const userId = user?.id ?? "";
+  const username = user?.fullName ?? "";
 
   return (
     token && (
@@ -87,6 +90,7 @@ const Chat = () => {
             token={token}
             chatId=""
             messages={[]}
+            username={username}
           />
         </div>
       </>
