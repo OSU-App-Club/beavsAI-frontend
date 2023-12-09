@@ -1,12 +1,15 @@
 import { useCallback, useState } from "react";
 import useCourses from "../../hooks/useCourses";
+import { coursesMap } from "../../types";
 
 interface CourseSelectorProps {
   onSelectCourse: (courseId: string) => void;
+  mock?: boolean;
 }
 
 export default function CourseSelector({
   onSelectCourse,
+  mock,
 }: CourseSelectorProps) {
   const { courses, loading, error } = useCourses();
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -19,6 +22,36 @@ export default function CourseSelector({
     },
     [onSelectCourse]
   );
+
+  if (mock) {
+    return (
+      <>
+        <label className="w-full flex flex-col">
+          <div className="label">
+            <span className="label-text text-black dark:text-white">
+              Available Courses
+            </span>
+          </div>
+          <select
+            className="select select-lg select-bordered w-full max-w-full bg-transparent text-black dark:text-white shadow-inner shadow-slate-300 dark:shadow-slate-900"
+            onChange={handleCourseChange}
+            value={
+              selectedCourse === null
+                ? "Currently Available Courses..."
+                : selectedCourse
+            }
+          >
+            <option defaultValue={"Senior Capstone"}>Senior Capstone</option>
+            {coursesMap?.map((course) => (
+              <option key={course.id} value={course.course_name}>
+                {course.course_name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </>
+    );
+  }
 
   return (
     <>
