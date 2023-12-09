@@ -17,7 +17,7 @@ export default function AboutSection() {
               OSU App Club
             </span>{" "}
           </h2>
-          <p className="mt-4 text-lg xs:text-base sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-md xs:text-base sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-gray-600 dark:text-gray-400">
             The OSU App Club is a student-run organization at Oregon State
             University that aims to provide students with the opportunity to
             learn about software development and to build real-world
