@@ -17,7 +17,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <ClerkProvider publishableKey={clerkPubKey} appearance={dark}>
+        <ClerkProvider
+          publishableKey={clerkPubKey}
+          appearance={{ baseTheme: dark }}
+        >
           <App />
         </ClerkProvider>
       </QueryClientProvider>
