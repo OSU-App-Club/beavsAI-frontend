@@ -125,7 +125,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
           console.error(err);
         });
     },
-    [chatId, queryClient]
+    [chatId, queryClient],
   );
 
   useEffect(() => {

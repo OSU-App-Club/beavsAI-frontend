@@ -35,14 +35,14 @@ export default function AddChatModal({ token, userId }: AddChatModalProps) {
     (courseId: string) => {
       setCourseId(courseId);
     },
-    [setCourseId]
+    [setCourseId],
   );
   return (
     <>
       <button
         onClick={() => {
           const popup = document.getElementById(
-            "popup"
+            "popup",
           ) as HTMLDialogElement | null;
           if (popup) {
             popup.showModal();
@@ -72,7 +72,7 @@ export default function AddChatModal({ token, userId }: AddChatModalProps) {
               className="btn btn-outline bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white"
               onClick={() => {
                 const popup = document.getElementById(
-                  "popup"
+                  "popup",
                 ) as HTMLDialogElement | null;
                 if (popup) {
                   popup.close();
@@ -86,7 +86,7 @@ export default function AddChatModal({ token, userId }: AddChatModalProps) {
               onClick={() => {
                 mutation.mutate();
                 const popup = document.getElementById(
-                  "popup"
+                  "popup",
                 ) as HTMLDialogElement | null;
                 if (popup) {
                   popup.close();

@@ -31,7 +31,7 @@ export default function ModalWindow() {
               className="btn btn-outline bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white"
               onClick={() => {
                 const popup = document.getElementById(
-                  "popup"
+                  "popup",
                 ) as HTMLDialogElement | null;
                 if (popup) {
                   popup.close();
@@ -46,7 +46,7 @@ export default function ModalWindow() {
               onClick={() => {
                 mutation.mutate();
                 const popup = document.getElementById(
-                  "popup"
+                  "popup",
                 ) as HTMLDialogElement | null;
                 if (popup) {
                   popup.close();

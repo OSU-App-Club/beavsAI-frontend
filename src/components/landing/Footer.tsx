@@ -44,7 +44,7 @@ export default function Footer() {
             onClick={() =>
               window.open(
                 "https://youtube.com/playlist?list=PLmkNs5q4-ReRzTkOPRRNxCxZUZrInlkgU&si=4gvPhJGVgQqiMXA_",
-                "_blank"
+                "_blank",
               )
             }
           >
@@ -59,7 +59,7 @@ export default function Footer() {
               onClick={() =>
                 window.open(
                   "mailto:nyumat@oregonstate.edu?subject=%5BApp%20Development%20Club%5D%20Hello%20from%20BeavsAI",
-                  "_blank"
+                  "_blank",
                 )
               }
             >

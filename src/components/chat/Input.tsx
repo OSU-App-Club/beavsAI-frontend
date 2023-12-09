@@ -23,7 +23,7 @@ export default function MessageInput(props: MessageInputProps) {
   const mutation = useMutation({
     mutationKey: ["createMessage", props.userId],
     mutationFn: () =>
-    addMessageToChat(props.userId, id, message, props.token, props.courseId),
+      addMessageToChat(props.userId, id, message, props.token, props.courseId),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["getSingleChatMessages", props.chatId],

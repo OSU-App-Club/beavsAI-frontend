@@ -95,7 +95,7 @@ const Chat = () => {
       setCourseId(courseId);
       mutation.mutate();
     },
-    [mutation]
+    [mutation],
   );
 
   return (

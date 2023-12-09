@@ -21,13 +21,13 @@ const createAxiosConfig = (token: string): AxiosRequestConfig => ({
 export const createChat = async (
   userId: string,
   token: string,
-  courseId: string
+  courseId: string,
 ) => {
   try {
     const { data } = await axios.post(
       `${BASE_URL}/chat`,
       { userId, courseId },
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -39,7 +39,7 @@ export const createChat = async (
 export const getAIResponse = async (userId: string, messageId: string) => {
   try {
     const { data } = await axios.get(
-      `${BASE_URL}/chat/${userId}/messages/${messageId}`
+      `${BASE_URL}/chat/${userId}/messages/${messageId}`,
     );
     return data;
   } catch (error) {
@@ -53,14 +53,14 @@ export const addMessageToChat = async (
   chatId: string,
   message: Message,
   token: string,
-  courseId: string
+  courseId: string,
 ) => {
   try {
     console.log("addMessageToChat", message);
     const { data } = await axios.post(
       `${BASE_URL}/chat/${userId}/chats/${chatId}/messages`,
       { message, courseId },
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -73,7 +73,7 @@ export const getAllUserMessages = async (userId: string, token: string) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}/chat/${userId}/messages`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -85,12 +85,12 @@ export const getAllUserMessages = async (userId: string, token: string) => {
 export const getChatById = async (
   userId: string,
   chatId: string,
-  token: string
+  token: string,
 ) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}/chat/${userId}/chats/${chatId}`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -102,12 +102,12 @@ export const getChatById = async (
 export const getAllMessagesForChat = async (
   userId: string,
   chatId: string,
-  token: string
+  token: string,
 ) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}/chat/${userId}/chats/${chatId}/messages`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -120,12 +120,12 @@ export const deleteMessage = async (
   userId: string,
   chatId: string,
   messageId: string,
-  token: string
+  token: string,
 ) => {
   try {
     const { data } = await axios.delete(
       `${BASE_URL}/chat/${userId}/chats/${chatId}/messages/${messageId}`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -137,12 +137,12 @@ export const deleteMessage = async (
 export const deleteChat = async (
   userId: string,
   chatId: string,
-  token: string
+  token: string,
 ) => {
   try {
     await axios.delete(
       `${BASE_URL}/chat/${userId}/chats/${chatId}`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
   } catch (error) {
     console.error(error);
@@ -154,7 +154,7 @@ export const getChatHistory = async (userId: string, token: string) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}/chat/${userId}/chats`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -166,12 +166,12 @@ export const getChatHistory = async (userId: string, token: string) => {
 export const getChatIdForCourse = async (
   userId: string,
   courseId: string,
-  token: string
+  token: string,
 ) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}/courses/${userId}/chat/${courseId}`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {
@@ -183,12 +183,12 @@ export const getChatIdForCourse = async (
 export const getCourseById = async (
   userId: string,
   chatId: string,
-  token: string
+  token: string,
 ) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}/courses/${userId}/chats/${chatId}`,
-      createAxiosConfig(token)
+      createAxiosConfig(token),
     );
     return data;
   } catch (error) {

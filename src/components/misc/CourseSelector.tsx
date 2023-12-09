@@ -20,7 +20,7 @@ export default function CourseSelector({
       setSelectedCourse(courseId);
       onSelectCourse(courseId);
     },
-    [onSelectCourse]
+    [onSelectCourse],
   );
 
   if (mock) {
