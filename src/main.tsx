@@ -5,7 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.js";
-import "./index.css";
+import "./styles/App.css";
 
 if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
@@ -17,10 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <ClerkProvider
-          publishableKey={clerkPubKey}
-          appearance={{ baseTheme: dark }}
-        >
+        <ClerkProvider publishableKey={clerkPubKey} appearance={dark}>
           <App />
         </ClerkProvider>
       </QueryClientProvider>

@@ -1,41 +1,21 @@
 import { useUser } from "@clerk/clerk-react";
-import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/misc/Layout";
-import { UserIdState, useUserIdStore } from "./lib/zustand";
-import Chat from "./pages/Chat";
+import Chat, { SingleChat } from "./pages/Chat";
 import Home from "./pages/Home";
-import SingleChat from "./pages/SingleChat";
+import "./styles/App.css";
 
 function App() {
   const { user } = useUser();
-  const setUserId = useUserIdStore((state: UserIdState) => state.setUserId);
-  useEffect(() => {
-    setUserId(user?.id ?? "");
-  }, [user, setUserId]);
-
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/chat"
-          element={
-            <Layout>
-              <Chat />
-            </Layout>
-          }
-        />
-        <Route
-          path="/chat/:chatId"
-          element={
-            <Layout>
-              <SingleChat user={user} />
-            </Layout>
-          }
-        />
-      </Routes>
-    </>
+    user && (
+      <>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat/:chatId" element={<SingleChat user={user} />} />
+        </Routes>
+      </>
+    )
   );
 }
 

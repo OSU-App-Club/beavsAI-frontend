@@ -1,70 +1,67 @@
-// import g10 from "../assets/g10.svg";
-import { Helmet } from "react-helmet";
-import {
-  About,
-  Features,
-  Footer,
-  Hero,
-  UIPreview,
-} from "../components/landing";
-import Navbar from "../components/navbar";
+import g10 from "../assets/g10.svg";
+import team from "../assets/team-picture.jpeg";
+import '../styles/App.css';
+import Auth from "../Auth";
+import { Link } from "react-router-dom";
+  
+  export default function Home() {
+    return (
+      <>
+      <div className="top-of-page-wrapper">
+          <nav className="nav-container">
+              <div className="title-name">Beavs<span className="ai">AI</span></div>
+              <div className="home-button">Home</div>
+              <div className="features-button">Features</div>
+              <div className="about-button">About</div>
+              <div className="resources-button">Resources</div>
+              <Auth/>
+          </nav>
+      </div>
 
-export function HomeHelmet() {
-  return (
-    <>
-      <Helmet>
-        <title>BeavsAI - The AI Assistant for OSU Students</title>
-        <meta
-          name="title"
-          content="BeavsAI - The AI Assistant for OSU Students"
-        />
-        <meta
-          name="description"
-          content="With BeavsAI, unlock the power of interactive education by adding your courses and initiating conversation with your very own AI assistant."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="BeavsAI - The AI Assistant for OSU Students"
-        />
-        <meta
-          property="og:description"
-          content="With BeavsAI, unlock the power of interactive education by adding your courses and initiating conversation with your very own AI assistant."
-        />
+      <div className="body-1-wrapper">
+          <div className="intro-header">Beavs.<span className ="ai">AI</span> <br /> Oregon State's Artifical Intelligence </div>        
+          <div className="intro-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, consequatur quasi ab ex obcaecati, non aliquid alias ut eius perspiciatis quos aut quidem minima nemo sint nihil dolore maxime aliquam?</div>
+          <Link to='/chat' className="intro-action-button">Start Chatting for Free!</Link>
+          <div className="intro-robot"><img src={g10} /></div> 
+      </div>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-site-verification" content="g10" />
+      <div className="body-2-wrapper">
+        <div className="body-2-header">About Us</div>
+        <div className="body-2-description">We have an amazing team here at Oregon State University!<br />Oregon State App Development Club</div>
+        <div className="box-1"></div>
+        <div className="box-2"></div>
+        <div className="box-3"></div>
+        <div className="box-4"></div>
+        <div className="box-5"></div>
+        <div className="box-6"></div>
+        <div className="box-7"></div>
+        <div className="box-8"></div>
+        <div className="box-9"></div>
+      </div>
 
-        <meta
-          name="keywords"
-          content="BeavsAI, Beavs, AI, OSU, Oregon State University, Chat, Chatbot, Course, Courses, Class, Classes, Vector, Store, Vector Store, Assistant, AI Assistant, Professor, Professors, Rate My Professor, Rate My Professors, RMP, Oregon State University App Development Club, App Dev Club, App Club, App Development Club, OSU, Go Beavs, Artificial Intelligence, ChatGPT, Educational Technology, Learning App, Conversation AI, Interactive Learning, Technology, OSU Technology, College, University, Student, Students, Education, Learning Experience"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="3 days" />
-        <meta
-          name="author"
-          content="App Development Club at Oregon State University"
-        />
-      </Helmet>
-    </>
-  );
-}
+      <div className="body-3-wrapper">
+        <div className="text-container">
+            <div className="body-3-header">Our Design and Development Team <br /> Oregon State University</div>
+            <div className="body-3-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae sed ea incidunt deserunt ad, temporibus necessitatibus quaerat voluptates nemo mollitia assumenda delectus
+                 ex praesentium quam repudiandae magni alias? Dolores, Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aperiam ut tempora. Incidunt labore reprehenderit veritatis exercitationem temporibus, nesciunt harum esse eum accusamus dignissimos 
+                 sint perferendis voluptate animi? Cum, dolores!</div>
+        </div>
+        <div className="body-3-team-photo"> <img src={team}/> </div>
+    </div>
 
-export default function Home() {
-  return (
-    <>
-      <HomeHelmet />
-      <Navbar />
-      <span id="home" />
-      <Hero />
-      <span id="features" />
-      <UIPreview />
-      <Features />
-      <span id="about" />
-      <About />
-      <Footer />
-    </>
-  );
-}
+
+      <div className="body-4-wrapper">
+        <div className="body-4-header">FAQ</div>
+        <div className="faq-box-1"></div>
+        <div className="faq-box-2"></div>
+        <div className="faq-box-3"></div>
+        <div className="faq-box-4"></div>
+        <div className="faq-box-5"></div>
+        <div className="faq-box-6"></div>
+        <div className="faq-box-7"></div>
+        <div className="faq-box-8"></div>
+        <div className="faq-box-9"></div>
+    </div>
+      </>
+    );
+  }

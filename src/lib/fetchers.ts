@@ -1,45 +1,19 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { Message } from "../types";
 
-const BASE_URL = "http://localhost:8000";
-const AI_URL = "http://localhost:8080";
+const BASE_URL = "http://localhost:8000"; // Adjust the base URL according to your server configuration
 
 const createAxiosConfig = (token: string): AxiosRequestConfig => ({
   headers: {
     Authorization: `Bearer ${token}`,
   },
-  withCredentials: false,
 });
 
-/*
- * In the future, it will make the most sense
- * to have the token be passed in as a parameter and
- * get the userID using that. For now, we'll just
- * pass in the userID as a parameter.
- */
-
-export const createChat = async (
-  userId: string,
-  token: string,
-  courseId: string
-) => {
+export const createChat = async (userId: string, token: string) => {
   try {
     const { data } = await axios.post(
       `${BASE_URL}/chat`,
-      { userId, courseId },
+      { userId },
       createAxiosConfig(token)
-    );
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
-
-export const getAIResponse = async (userId: string, messageId: string) => {
-  try {
-    const { data } = await axios.get(
-      `${BASE_URL}/chat/${userId}/messages/${messageId}`
     );
     return data;
   } catch (error) {
@@ -51,15 +25,13 @@ export const getAIResponse = async (userId: string, messageId: string) => {
 export const addMessageToChat = async (
   userId: string,
   chatId: string,
-  message: Message,
-  token: string,
-  courseId: string
+  message: string,
+  token: string
 ) => {
   try {
-    console.log("addMessageToChat", message);
     const { data } = await axios.post(
       `${BASE_URL}/chat/${userId}/chats/${chatId}/messages`,
-      { message, courseId },
+      { message },
       createAxiosConfig(token)
     );
     return data;
@@ -156,58 +128,7 @@ export const getChatHistory = async (userId: string, token: string) => {
       `${BASE_URL}/chat/${userId}/chats`,
       createAxiosConfig(token)
     );
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
-
-export const getChatIdForCourse = async (
-  userId: string,
-  courseId: string,
-  token: string
-) => {
-  try {
-    const { data } = await axios.get(
-      `${BASE_URL}/courses/${userId}/chat/${courseId}`,
-      createAxiosConfig(token)
-    );
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
-
-export const getCourseById = async (
-  userId: string,
-  chatId: string,
-  token: string
-) => {
-  try {
-    const { data } = await axios.get(
-      `${BASE_URL}/courses/${userId}/chats/${chatId}`,
-      createAxiosConfig(token)
-    );
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
-
-export const loadDocument = async (crn: string) => {
-  const requestData = {
-    class_name: `${crn}`,
-  };
-  if (crn === "") {
-    return;
-  }
-  try {
-    const { data } = await axios.post(`${AI_URL}/load_documents`, requestData, {
-      withCredentials: true,
-    });
+    console.log(data);
     return data;
   } catch (error) {
     console.error(error);
