@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { UserResource } from "@clerk/types";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -23,9 +22,8 @@ import { Message, SenderType } from "../types";
 
 export default function SingleChat({ user }: { user: UserResource }) {
   useToken();
-
-  const { token } = useTokenStore();
-  const { userId } = useUserIdStore();
+  const userId = useUserIdStore.getState().userId;
+  const token = useTokenStore.getState().token;
   const { chatId } = useParams<{ chatId: string }>();
   const [courseName, setCourseName] = useState<string>("");
   const queryClient = useQueryClient();
