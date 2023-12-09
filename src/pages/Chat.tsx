@@ -55,7 +55,7 @@ const MessagesListSection = ({
 
 const Chat = () => {
   useToken();
-  const { token } = useTokenStore();
+  const token = useTokenStore.getState().token;
   const { user } = useUser();
   const [courseId, setCourseId] = useState<string>("");
   const [chatId, setChatId] = useState<string>("");

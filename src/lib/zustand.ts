@@ -1,21 +1,21 @@
 import { create, StoreApi } from "zustand";
 
-interface TokenState {
+export interface TokenState {
   token: string;
-  setToken: (token: string) => void;
-  getToken: () => string;
+  setToken?: (token: string) => void;
+  getToken?: () => string;
 }
 
-interface UserIdState {
+export interface UserIdState {
   userId: string;
-  setUserId: (userId: string) => void;
-  getUserId: () => string;
+  setUserId?: (userId: string) => void;
+  getUserId?: () => string;
 }
 
-interface ChatIdState {
+export interface ChatIdState {
   chatId: string;
-  setChatId: (chatId: string) => void;
-  getChatId: () => string;
+  setChatId?: (chatId: string) => void;
+  getChatId?: () => string;
 }
 
 export type UserStore = StoreApi<UserIdState>;

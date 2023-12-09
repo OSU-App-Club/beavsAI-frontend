@@ -1,5 +1,5 @@
 import useToken from "../../hooks/useToken";
-import { TokenState, useTokenStore } from "../../lib/zustand";
+import { useTokenStore } from "../../lib/zustand";
 import { Sidebar } from "../sidebar";
 
 interface LayoutProps {
@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   useToken();
-  const token = useTokenStore((state: TokenState) => state.token);
+  const token = useTokenStore.getState().token;
   return (
     token && (
       <div className="flex bg-gray-100 dark:bg-gray-900 h-screen">
