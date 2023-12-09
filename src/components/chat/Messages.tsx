@@ -1,13 +1,12 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { ChatContainerProps, Message, SenderType } from "../../types";
 import ChatMessage, { AIMessage } from "./Message";
 
 export default function Messages(props: ChatContainerProps) {
   const options = useRef({ duration: 300 }).current;
   const [cbRef] = useAutoAnimate(options);
-    const [loading, setLoading] = useState(false);
-    
+
   useEffect(() => {
     const bottom = document.getElementById("bottom");
     bottom?.scrollIntoView({ behavior: "smooth" });
@@ -28,8 +27,6 @@ export default function Messages(props: ChatContainerProps) {
     );
   }
 
-  console.log("props.messages", props.messages);
-
   return (
     <div
       className="flex flex-col h-full w-full gap-16"
@@ -43,7 +40,7 @@ export default function Messages(props: ChatContainerProps) {
               message.senderType === SenderType.Human
                 ? "items-start"
                 : "items-end"
-            } pb-12`}
+            } pb-8`}
           >
             {message.senderType === SenderType.Human ? (
               <ChatMessage
@@ -57,12 +54,14 @@ export default function Messages(props: ChatContainerProps) {
                 index={index}
               />
             ) : (
-              <AIMessage message={message.answer} />
+              <AIMessage
+                message={message.answer}
+                show={message.answer !== ""}
+              />
             )}
           </div>
         </React.Fragment>
       ))}
-      {/* {loading && <PacmanLoader color={"#FFA500"} />} */}
 
       <div id="bottom" />
     </div>

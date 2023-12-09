@@ -1,4 +1,5 @@
 import CourseSelector from "./CourseSelector";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 import {
   ChatContainerSkeleton,
   ChatContainerWithSkeleton,
@@ -13,3 +14,5 @@ export {
   CourseSelector as Selector,
   MessageInputSkeleton,
 };
+
+export { MaxWidthWrapper as Wrapper };

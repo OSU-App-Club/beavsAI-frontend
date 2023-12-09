@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { UserResource } from "@clerk/types";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
 import { ToastContainer, toast } from "react-toastify";
@@ -27,19 +27,14 @@ export default function SingleChat({ user }: { user: UserResource }) {
   const { token } = useTokenStore();
   const { userId } = useUserIdStore();
   const { chatId } = useParams<{ chatId: string }>();
-  const [parent] = useAutoAnimate();
   const [courseName, setCourseName] = useState<string>("");
   const queryClient = useQueryClient();
-  const [list, setList] = useState<Message[]>([]);
-  const [loading, setLoading] = useState(false);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["getSingleChatMessages", chatId],
     queryFn: () => getAllMessagesForChat(userId, chatId, token),
     refetchOnWindowFocus: true,
     refetchOnMount: true,
-    refetchOnReconnect: true,
-    refetchInterval: 1000,
     select: (data) => {
       const initMessage = {
         question: "",
@@ -64,26 +59,6 @@ export default function SingleChat({ user }: { user: UserResource }) {
       userId !== undefined &&
       userId !== null,
   });
-
-  /*
-  useEffect(() => {
-    const initMessage = {
-      question: "Welcome to the chat!",
-      answer: "Use the chat box below to ask a question about your course!",
-      userId: "beavsAI",
-      _id: "beavsAI",
-      chatId: "beavsAI",
-      courseId: "beavsAI",
-      senderType: SenderType.AI,
-    };
-
-    if (data && data.length === 0) {
-      setList([...list, initMessage]);
-    } else if (data) {
-      setList(data);
-    }
-  }, []);
-  */
 
   const { data: courseInfo } = useQuery({
     queryKey: ["getCourseById", chatId],
@@ -130,6 +105,31 @@ export default function SingleChat({ user }: { user: UserResource }) {
     },
   });
 
+  const handleNewMessage = useCallback(
+    (message: Message) => {
+      console.log(message);
+      async function postMessage() {
+        await axios.post("http://localhost:8000/chat/response", {
+          message: message,
+          userId: message.userId,
+          chatId: message.chatId,
+          courseId: message.courseId,
+          senderType: message.senderType,
+        });
+      }
+      postMessage()
+        .then(() => {
+          queryClient.invalidateQueries({
+            queryKey: ["getSingleChatMessages", chatId],
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
+    [chatId, queryClient]
+  );
+
   useEffect(() => {
     const message: string = status?.error.toString();
     if (status && status?.error && !isStale)
@@ -155,6 +155,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
       <>
         <div className="flex flex-col md:flex-row h-screen dark:bg-gray-900 bg-slate-200">
           <ChatContainerWithSkeleton
+            isLoading={isLoading}
             {...{
               messages: [],
               userId,
@@ -191,10 +192,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
     courseInfo &&
     data && (
       <>
-        <div
-          className="flex flex-col h-screen dark:bg-gray-900 bg-slate-200 max-h-screen w-full"
-          ref={parent}
-        >
+        <div className="flex flex-col h-screen dark:bg-gray-900 bg-slate-200 max-h-screen w-full">
           <div className="flex flex-col flex-grow m-8 p-8 mb-24 mt-12 gap-4 overflow-y-scroll">
             {courseInfo && <CourseInfo chat={courseInfo} />}
             {data && (
@@ -204,11 +202,12 @@ export default function SingleChat({ user }: { user: UserResource }) {
                 token={token}
                 chatId={chatId}
                 username={user.fullName}
+                isLoading={isLoading}
               />
             )}
             {statusLoading && (
               <div
-                className="flex flex-col flex-grow toast toast-center toast-middle alert bg-slate-300 w-fit shadow-lg border-none"
+                className="flex flex-col flex-grow toast toast-center toast-middle alert bg-slate-300 dark:bg-gray-800 w-fit shadow-lg border-none"
                 role="alert"
               >
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -220,6 +219,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
           </div>
           <div className="fixed bottom-0 w-full">
             <Input
+              onAddMessage={handleNewMessage}
               userId={user.id}
               token={token}
               setLoadingEffect={() => {}}
