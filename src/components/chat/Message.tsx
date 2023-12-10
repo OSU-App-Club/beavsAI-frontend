@@ -2,12 +2,11 @@ import { useUser } from "@clerk/clerk-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { PacmanLoader } from "react-spinners";
 
-import "../../assets/ai-profile-picture.jpeg";
 import g10 from "../../assets/g10.svg";
-import "../../assets/profile-logo-image.jpeg";
 import { deleteMessage } from "../../lib/fetchers";
 import "../../styles/ChatMessage.css";
 import { ChatMessageProps } from "../../types";
+import "/profile-logo-image.jpeg";
 
 const ChatMessage = (props: ChatMessageProps) => {
   const queryClient = useQueryClient();
@@ -31,9 +30,7 @@ const ChatMessage = (props: ChatMessageProps) => {
             <div className="w-12 h-12 rounded-full ring ring-orange-500 ring-offset-base-100 ring-offset-2 overflow-hidden">
               <img
                 src={
-                  user?.hasImage
-                    ? user?.imageUrl
-                    : "/profile-logo-image.jpeg"
+                  user?.hasImage ? user?.imageUrl : "/profile-logo-image.jpeg"
                 }
                 alt="User Avatar"
                 className="w-full h-full object-cover"
