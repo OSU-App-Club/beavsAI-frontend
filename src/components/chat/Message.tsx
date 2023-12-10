@@ -33,7 +33,7 @@ const ChatMessage = (props: ChatMessageProps) => {
                 src={
                   user?.hasImage
                     ? user?.imageUrl
-                    : "../../src/assets/profile-logo-image.jpeg"
+                    : "/profile-logo-image.jpeg"
                 }
                 alt="User Avatar"
                 className="w-full h-full object-cover"
