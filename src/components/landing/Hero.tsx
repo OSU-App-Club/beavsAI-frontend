@@ -18,7 +18,7 @@ export default function Hero() {
           </span>{" "}
           in seconds.
         </h1>
-        <p className="mt-8 max-w-prose dark:text-zinc-300 sm:text-lg text-zinc-700 mx-12">
+        <p className="mt-8 max-w-prose dark:text-zinc-300/70 sm:text-lg text-zinc-700 mx-12">
           BeavsAI allows you to have conversations with any course. Simply add a
           course from our vector store and start chatting with your very own AI
           assistant.

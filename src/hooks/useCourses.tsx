@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+const FETCH_URL = import.meta.env.VITE_REACT_APP_API_URL;
+
+
 interface Course {
   _id: string;
   index: string;
@@ -23,7 +26,7 @@ const useCourses = (): HookResponse => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch("http://localhost:8000/courses");
+        const response = await fetch(`${FETCH_URL}/courses`);
         if (!response.ok) {
           throw new Error("Failed to fetch courses");
         }

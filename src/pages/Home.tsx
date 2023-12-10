@@ -54,7 +54,7 @@ export function HomeHelmet() {
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-gray-100 dark:bg-gray-950 ">
       <HomeHelmet />
       <Navbar />
       <span id="home" />
@@ -65,6 +65,6 @@ export default function Home() {
       <span id="about" />
       <About />
       <Footer />
-    </>
+    </div>
   );
 }

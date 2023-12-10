@@ -9,7 +9,7 @@ export default function Footer() {
   // No <Link> because we can't open a new tab with it
   return (
     <>
-      <footer className="footer footer-center p-10 bg-zinc-200/40 dark:bg-zinc-800 text-gray-800 dark:text-base-content rounded">
+      <footer className="footer footer-center p-10 bg-gray-200 dark:bg-zinc-900 text-gray-950 dark:text-base-content rounded">
         <nav className="grid grid-flow-col gap-4">
           <a
             id="features"
@@ -120,7 +120,7 @@ export default function Footer() {
           </div>
         </nav>
         <aside>
-          <div className="text-center text-sm text-zinc-600 dark:text-gray-400 link link-hover">
+          <div className="text-center text-sm text-gray-950 dark:text-base-content link link-hover">
             <p>© 2023 App Development Club at Oregon State University</p>
           </div>
         </aside>

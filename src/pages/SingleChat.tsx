@@ -20,6 +20,8 @@ import {
 import { useTokenStore, useUserIdStore } from "../lib/zustand";
 import { Message, SenderType } from "../types";
 
+const FETCH_URL = import.meta.env.VITE_REACT_APP_API_URL;
+
 export default function SingleChat({ user }: { user: UserResource }) {
   useToken();
   const userId = useUserIdStore.getState().userId;
@@ -102,12 +104,11 @@ export default function SingleChat({ user }: { user: UserResource }) {
       return "";
     },
   });
-
   const handleNewMessage = useCallback(
     (message: Message) => {
       console.log(message);
       async function postMessage() {
-        await axios.post("http://localhost:8000/chat/response", {
+        await axios.post(`${FETCH_URL}/chat/response`, {
           message: message,
           userId: message.userId,
           chatId: message.chatId,
