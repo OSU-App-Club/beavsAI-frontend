@@ -1,6 +1,7 @@
 import daisyui from "daisyui";
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: "class",
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
@@ -10,9 +11,9 @@ export default {
     },
     plugins: [daisyui],
     daisyui: {
-        themes: ["dark"], 
+        themes: ["dark"],
         darkTheme: "dark",
-        base: false, 
+        base: false,
         styled: true,
         utils: true,
         prefix: "",
