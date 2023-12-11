@@ -10,12 +10,10 @@ const Layout = ({ children }: LayoutProps) => {
   useToken();
   const token = useTokenStore.getState().token;
   return (
-    token && (
-      <div className="flex bg-gray-100 dark:bg-gray-900 h-screen">
-        <Sidebar token={token} />
-        <div className="flex-grow min-w-max w-full">{children}</div>
-      </div>
-    )
+    <div className="flex bg-gray-100 dark:bg-gray-900 h-screen">
+      <Sidebar token={token} />
+      <div className="flex-grow min-w-max w-full">{children}</div>
+    </div>
   );
 };
 

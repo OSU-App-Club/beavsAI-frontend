@@ -43,7 +43,7 @@ export const ChatContainerWithSkeleton = (props: ChatContainerProps) => {
   const { messages, userId, token, chatId, username } = props;
   return (
     <>
-      {messages.length > 0 ? (
+      {messages?.length > 0 ? (
         <MessagesList
           username={username}
           userId={userId}

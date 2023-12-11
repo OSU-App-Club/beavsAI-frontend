@@ -1,4 +1,4 @@
-import { UserResource } from "@clerk/types";
+import { useUser } from "@clerk/clerk-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
@@ -17,14 +17,15 @@ import {
   getCourseById,
   loadDocument,
 } from "../lib/fetchers";
-import { useTokenStore, useUserIdStore } from "../lib/zustand";
+import { useTokenStore } from "../lib/zustand";
 import { Message, SenderType } from "../types";
 
 const FETCH_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
-export default function SingleChat({ user }: { user: UserResource }) {
+export default function SingleChat() {
+  const { user } = useUser();
   useToken();
-  const userId = useUserIdStore.getState().userId;
+  const userId = user?.id ?? "";
   const token = useTokenStore.getState().token;
   const { chatId } = useParams<{ chatId: string }>();
   const [courseName, setCourseName] = useState<string>("");
@@ -50,10 +51,6 @@ export default function SingleChat({ user }: { user: UserResource }) {
     },
     enabled:
       // yeah, this is a bit of a hack, but we'll modify this later
-      chatId !== "" &&
-      chatId !== "undefined" &&
-      chatId !== undefined &&
-      chatId !== null &&
       userId !== "" &&
       userId !== "undefined" &&
       userId !== undefined &&
@@ -131,7 +128,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
 
   useEffect(() => {
     const message: string = status?.error.toString();
-    if (status && status?.error && !isStale)
+    if (status && status?.error && isStale)
       toast.info(message, {
         toastId: "error",
       });
@@ -149,7 +146,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
     });
   }, [courseInfo, queryClient]);
 
-  if (isLoading || !data) {
+  if (isLoading && !data) {
     return (
       <>
         <div className="flex flex-col md:flex-row h-screen dark:bg-gray-900 bg-slate-200">
@@ -173,15 +170,9 @@ export default function SingleChat({ user }: { user: UserResource }) {
     return (
       <>
         <div className="flex flex-col md:flex-row h-screen dark:bg-gray-900 bg-slate-200">
-          <div className="flex flex-col flex-grow">
-            <div className="flex flex-col flex-grow">
-              <div className="flex-grow flex flex-col justify-center items-center">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  Error: {error.message}
-                </h1>
-              </div>
-            </div>
-          </div>
+          <h1 className="text-4xl font-bold text-black dark:text-white">
+            {error.message}
+          </h1>
         </div>
       </>
     );
@@ -206,7 +197,7 @@ export default function SingleChat({ user }: { user: UserResource }) {
             )}
             {statusLoading && (
               <div
-                className="flex flex-col flex-grow toast toast-center toast-middle alert bg-slate-300 dark:bg-gray-800 w-fit shadow-lg border-none"
+                className="flex flex-col flex-grow toast toast-center toast-middle alert bg-transparent dark:bg-gray-800 w-1/2 mx-auto translate-y-10 shadow-xl border-sm"
                 role="alert"
               >
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
