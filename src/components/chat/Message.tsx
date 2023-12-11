@@ -22,6 +22,8 @@ const ChatMessage = (props: ChatMessageProps) => {
     },
   });
 
+  const theme = localStorage.getItem("theme");
+
   return (
     <div>
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 flex flex-row items-center w-fit justify-start">
@@ -55,6 +57,7 @@ const ChatMessage = (props: ChatMessageProps) => {
             }}
             style={{
               backgroundColor: "transparent",
+              color: theme === "dark" ? "white" : "rgb(255,89,9)",
               border: "none",
               cursor: "pointer",
             }}
