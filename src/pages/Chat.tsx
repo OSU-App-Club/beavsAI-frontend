@@ -1,8 +1,9 @@
 import { useUser } from "@clerk/clerk-react";
 import { UserResource } from "@clerk/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { MessagesList } from "../components/chat";
 import { Selector } from "../components/misc";
 import useToken from "../hooks/useToken";
@@ -54,7 +55,7 @@ const MessagesListSection = ({
 );
 
 const Chat = () => {
-    const { user } = useUser();
+  const { user } = useUser();
   useToken();
   const token = useTokenStore.getState().token;
   const [courseId, setCourseId] = useState<string>("");
@@ -98,26 +99,58 @@ const Chat = () => {
     [mutation],
   );
 
+  if (!token && !user && !user?.emailAddresses) {
+    navigate("/");
+  }
+
+  useEffect(() => {
+    if (
+      user?.emailAddresses.every(
+        (e) => !e.emailAddress.endsWith("@oregonstate.edu"),
+      )
+    ) {
+      toast.error(
+        "You must use an Oregon State email address to use this app.",
+      );
+
+      navigate("/");
+    }
+  }, [token, user, navigate]);
+
   return (
     user && (
-      <div className="flex flex-col md:flex-row h-screen dark:bg-gray-900 bg-slate-200 w-full">
-        <div className="flex flex-col w-full h-full overflow-y-auto">
-          {data && !messagesLoading && (
-            <MessagesListSection
-              user={user}
-              messages={messages}
-              token={token}
-              chatId={chatId}
-            />
-          )}
-          {data || messages ? null : (
-            <WelcomeSection
-              user={user}
-              handleSelectCourse={handleSelectCourse}
-            />
-          )}
+      <>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+        <div className="flex flex-col md:flex-row h-screen dark:bg-gray-900 bg-slate-200 w-full">
+          <div className="flex flex-col w-full h-full overflow-y-auto">
+            {data && !messagesLoading && (
+              <MessagesListSection
+                user={user}
+                messages={messages}
+                token={token}
+                chatId={chatId}
+              />
+            )}
+            {data || messages ? null : (
+              <WelcomeSection
+                user={user}
+                handleSelectCourse={handleSelectCourse}
+              />
+            )}
+          </div>
         </div>
-      </div>
+      </>
     )
   );
 };

@@ -1,5 +1,5 @@
 // import g10 from "../assets/g10.svg";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import {
   About,
   Features,
