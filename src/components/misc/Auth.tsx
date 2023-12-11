@@ -13,24 +13,20 @@ export default function Auth() {
     return (
       <div className="flex justify-center items-center gap-4">
         <SignInButton>
-          <a
-            href="#about"
-            role="link"
-            title="About"
+          <span
+            aria-label="Sign In"
             className="sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-800 dark:text-white hover:text-orange-600 dark:hover:text-orange-600 relative after:bg-orange-600 after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
           >
             Login
-          </a>
+          </span>
         </SignInButton>
         <SignUpButton>
-          <a
-            href="#about"
-            role="link"
-            title="About"
+          <span
+            aria-label="Sign Up"
             className="sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-800 dark:text-white hover:text-orange-600 dark:hover:text-orange-600 relative after:bg-orange-600 after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
           >
             Sign Up
-          </a>
+          </span>
         </SignUpButton>
       </div>
     );
