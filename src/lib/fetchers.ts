@@ -3,7 +3,7 @@ import { Message } from "../types";
 
 const BASE_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
-const AI_URL = "http://localhost:8080";
+const AI_URL = import.meta.env.VITE_REACT_APP_AI_URL;
 
 const createAxiosConfig = (token: string): AxiosRequestConfig => ({
   headers: {
