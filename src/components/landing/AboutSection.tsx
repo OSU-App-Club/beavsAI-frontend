@@ -2,9 +2,9 @@ import team from "../../assets/team-picture.jpg";
 export default function AboutSection() {
   return (
     <>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center mt-64">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center sm:mt-64 md:mt-72 lg:mt-72 xl:mt-72">
         <div className="flow-root sm:mt-24 space-y-12 mb-16">
-          <h2 className="mt-2 font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-gray-900 dark:text-white">
+          <h2 className="mt-2 font-bold text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl text-gray-900 dark:text-white">
             Brought to you by the{" "}
             <span
               role="link"

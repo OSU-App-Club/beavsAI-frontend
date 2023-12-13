@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Auth from "../misc/Auth";
+import Mobile from "./Mobile";
 
 type Theme = "light" | "dark";
 
 export default function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+  const navbarRef = useRef(null);
+
   const getInitialTheme = (): Theme => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     return savedTheme ?? "light";
@@ -11,6 +15,18 @@ export default function Navbar() {
 
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const themeRef = useRef<Theme>(getInitialTheme());
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -29,11 +45,28 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar flex items-center justify-evenly p-6 bg-transparent dark:bg-transparent gap-96">
-        <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 dark:text-white">
+      <nav
+        className={`navbar flex items-center justify-evenly p-6 bg-transparent dark:bg-transparent gap-4 sm:gap-72 md:gap-72 lg:gap-72 xl:gap-96 max-x-5xl mx-auto ${
+          isSticky
+            ? "sticky top-0 z-50 rounded-lg backdrop-filter backdrop-blur-md bg-white/5 dark:bg-zinc-950/5 border-b-[0.1px] border-zinc-800/10 dark:border-zinc-200/10"
+            : ""
+        }`}
+        ref={navbarRef}
+      >
+        {/* Logo */}
+        <div className="text-4xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 dark:text-white">
           Beavs<span className="text-orange-600">AI</span>
         </div>
-        <div className="space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 flex items-center">
+        {/* Mobile Nav */}
+        <Mobile
+          themeChangeFn={handleThemeChange}
+          getInitialTheme={getInitialTheme}
+          theme={theme}
+        />
+        {/* Desktop Nav */}
+        <div
+          className={`space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 items-center justify-center hidden sm:flex`}
+        >
           <a
             href="#home"
             role="link"
@@ -58,8 +91,7 @@ export default function Navbar() {
           >
             About
           </a>
-          <Auth />
-
+          <Auth mobile={false} />
           <label className="swap swap-rotate">
             <input
               type="checkbox"

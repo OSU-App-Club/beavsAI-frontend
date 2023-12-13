@@ -6,7 +6,7 @@ export default function FeaturesOne() {
     <>
       <div className="mx-auto  max-w-5xl sm:mb-64 sm:mt-56 md:mt-72 lg:mt-80 xl:mt-[16rem] mt-32">
         <div className="relative isolate">
-          <h2 className="mt-2 font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-zinc-800 dark:text-white text-center">
+          <h2 className="mt-2 font-bold text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-zinc-800 dark:text-white text-center">
             1. Add a course
           </h2>
           <div
@@ -50,7 +50,7 @@ export default function FeaturesOne() {
             />
           </div>
           <div>
-            <h2 className="my-24 font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-zinc-800 dark:text-white text-center">
+            <h2 className="my-24 font-bold text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-zinc-800 dark:text-white text-center">
               2. Send a message
             </h2>
             <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -94,13 +94,13 @@ export function FeaturesSecond() {
       <div className="mx-auto mb-32 mt-32 max-w-5xl sm:mt-42">
         <div className="mb-8 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
-            <h2 className="mt-2 font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-gray-900 dark:text-white">
+            <h2 className="mt-2 font-bold text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-gray-900 dark:text-white">
               Start chatting in
               <span className="text-orange-600"> seconds</span>
             </h2>
-            <p className="mt-4 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black/40 dark:text-gray-400">
+            <p className="mt-4 text-lg xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black/40 dark:text-gray-400">
               Understanding your course documents has never been easier than
-              with Beavs.ai.
+              with BeavsAI.
             </p>
           </div>
         </div>
@@ -114,12 +114,11 @@ export function FeaturesSecond() {
               <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-black/70 dark:text-slate-200">
                 Create an account
               </span>
-              <span className="mt-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-zinc-500">
-                Join Beavs.ai with your OSU email. Please note that{" "}
+              <span className="mt-2 text-md sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-zinc-500">
+                Join BeavsAI with your OSU email. Please note that{" "}
                 <span className="text-orange-600 font-extrabold">
-                  to use beavs.ai, you must have an OSU email.
+                  to use BeavsAI, you must be affiliated with Oregon State University.
                 </span>
-                We accept GitHub, Google, and Apple accounts.
               </span>
             </div>
           </li>
@@ -131,7 +130,7 @@ export function FeaturesSecond() {
               <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-black/70 dark:text-slate-200">
                 Add a course to your account
               </span>
-              <span className="mt-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-zinc-500">
+              <span className="mt-2 text-md sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-zinc-500">
                 Add a course to your account selecting it from our vector store
                 through the chat interface.
               </span>
@@ -145,7 +144,7 @@ export function FeaturesSecond() {
               <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-black/70 dark:text-slate-200">
                 Start chatting with your course
               </span>
-              <span className="mt-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-zinc-500">
+              <span className="mt-2 text-md sm:text-sm md:text-base lg:text-lg xl:text-xl text-zinc-700 dark:text-zinc-500">
                 That's it! You can now chat with your personal AI assistant &
                 get answers to your questions. Go beavs.
               </span>
