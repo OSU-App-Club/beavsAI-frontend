@@ -103,7 +103,6 @@ export default function SingleChat() {
   });
   const handleNewMessage = useCallback(
     (message: Message) => {
-      console.log(message);
       async function postMessage() {
         await axios.post(`${FETCH_URL}/chat/response`, {
           message: message,
