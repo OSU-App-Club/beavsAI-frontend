@@ -57,7 +57,6 @@ export const addMessageToChat = async (
   courseId: string,
 ) => {
   try {
-    console.log("addMessageToChat", message);
     const { data } = await axios.post(
       `${BASE_URL}/chat/${userId}/chats/${chatId}/messages`,
       { message, courseId },

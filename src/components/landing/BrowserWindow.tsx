@@ -8,7 +8,7 @@ export default function BrowserWindow() {
       <div className="mockup-browser bg-zinc-700/30 dark:bg-zinc-900/40">
         <div className="mockup-browser-toolbar dark:border dark:p-6 dark:rounded-lg dark:border-zinc-700/30">
           <div className="input border-orange-600 shadow-xl text-zinc-100 align-center mb-2 font-light">
-            https://beavs.ai
+            https://beavsai.onrender.com
           </div>
         </div>
         <div className="flex flex-col justify-center px-4 py-16 dark:bg-zinc-900/70 h-full bg-white/60">
